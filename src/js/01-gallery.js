@@ -35,10 +35,11 @@ function ImgClick(e) {
   e.preventDefault();
 
   if (!e.target.classList.contains('gallery__image')) return;
-  modalImg = basicLightbox.create(
-    `<img width="800" height="600" src="${e.target.dataset.source}">`
-  );
-  modalImg.show();
+  modalImg = new SimpleLightbox('.gallery a', {
+    captions: true,
+    captionsData: 'alt',
+    captionDelay: 250,
+  }).show();
 
   galleryDiv.addEventListener('keydown', escPress);
   escPress();
