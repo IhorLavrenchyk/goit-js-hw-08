@@ -12,7 +12,7 @@ const refs = {
 refs.form.addEventListener('input', throttle(storageFormData, 500));
 refs.form.addEventListener('submit', onFormSubmit);
 
-reloadPage();
+saveValue();
 
 function storageFormData(evt) {
   formData[evt.target.name] = evt.target.value.trim();
@@ -30,7 +30,7 @@ function onFormSubmit(evt) {
   formData = {};
 }
 
-function reloadPage() {
+function saveValue() {
   const savedValues = localStorage.getItem(STORAGE_KEY);
 
   if (savedValues) {
